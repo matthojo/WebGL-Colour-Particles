@@ -72,7 +72,7 @@ controls.zoomSpeed = 1.2;
 controls.panSpeed = 0.8;
 
 controls.noZoom = false;
-controls.noPan = false;
+controls.noPan = true;
 
 controls.staticMoving = false;
 controls.dynamicDampingFactor = 0.15;
@@ -117,16 +117,20 @@ scene.add(meshCube);
  * Particles
  *
  *******/
-
+ var Enviroment = function(){
+	this.particleCount = 1800;
+	this.particleVelocity = 0.5;
+ };
+ var env = new Enviroment();
+ 
 // create the particle variables
-var particleCount = 1800,
-    particles = new THREE.Geometry(),
+var particles = new THREE.Geometry(),
     material,
     colors = [],
     sprite = THREE.ImageUtils.loadTexture( "images/particle.png" );
 
 // now create the individual particles
-for(var p = 0; p < particleCount; p++) {
+for(var p = 0; p < env.particleCount; p++) {
 
     var vertex = new THREE.Vector3();
     vertex.x = 1000 * Math.random() - 500;
@@ -176,7 +180,7 @@ function animate(){
     //material.color.setRGB(h, 1, 1 );
 
    var rndmValue = Math.random() * .5;
-   for(var i=0;i<particleCount;i++) {
+   for(var i=0;i<env.particleCount;i++) {
         // get the particle
         var particle = particles.vertices[i];
 
@@ -201,9 +205,9 @@ function animate(){
        }
 
        // update the velocity
-       particle.velocity.y = rndmValue;
-       particle.velocity.x = rndmValue;
-       particle.velocity.z = rndmValue;
+       particle.velocity.y = env.particleVelocity;
+       particle.velocity.x = env.particleVelocity;
+       particle.velocity.z = env.particleVelocity;
 
        // and the position
        particle.addSelf(particle.velocity);

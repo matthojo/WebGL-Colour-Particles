@@ -25,11 +25,12 @@
 
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-	<script src="js/raf.js"></script>
-	<script src="js/Three.js"></script>
-	<script src="js/detector.js"></script>
-    <script src="js/stats.js"></script>
-	<script src="js/script.js"></script>
+	<script src="/js/raf.js"></script>
+	<script src="/js/Three.js"></script>
+	<script src="/js/detector.js"></script>
+    <script src="/js/stats.js"></script>
+    <script src="/js/dat.gui.js"></script>
+	<script src="/js/script.js"></script>
 	<script>
     var _gaq=[['_setAccount','UA-4609610-24'],['_trackPageview']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
