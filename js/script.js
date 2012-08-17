@@ -138,9 +138,9 @@ for(var p = 0; p < env.particleCount; p++) {
     vertex.z = 1000 * Math.random() - 500;
 
     vertex.velocity = new THREE.Vector3(
-        0,				// x
-        -Math.random(),	// y
-        0);
+        randomFromTo(-Math.random(), Math.random()),				// x
+        randomFromTo(-Math.random(), Math.random()),	// y
+        randomFromTo(-Math.random(), Math.random()));
 
     particles.vertices.push( vertex );
 
@@ -172,7 +172,9 @@ particleSystem.sortParticles = true;
  * FUNCTIONS
  *
  *******/
-
+function randomFromTo(from, to) {
+	return Math.floor(Math.random() * (to - from + 1) + from);
+}
 
 function animate(){
     var time = Date.now() * 0.00005;
@@ -204,10 +206,6 @@ function animate(){
            particle.z = -500;
        }
 
-       // update the velocity
-       particle.velocity.y = env.particleVelocity;
-       particle.velocity.x = env.particleVelocity;
-       particle.velocity.z = env.particleVelocity;
 
        // and the position
        particle.addSelf(particle.velocity);
